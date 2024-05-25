@@ -1,0 +1,69 @@
+import java.util.*;
+class NumberGuess 
+{
+ public static void main(String[] args)
+ {
+   Scanner scan = new Scanner(System.in);
+   Random random = new Random();
+   int startNum=1;
+   int endNum=100;
+   char choice='y';
+   int attempts=0;
+   int TotalAttempts=0;
+   int winFlag=0;
+   int round=0;
+   
+   
+   int randomNumber = random.nextInt(endNum-startNum+1)+startNum;
+   int PreviousNumber=0;
+
+   while(choice=='y')
+   {
+    
+     attempts=0;
+   
+    while(attempts!=3)
+    {
+       
+    System.out.print("Enter your guess: "+randomNumber);
+    int guess = scan.nextInt();
+
+   if(guess==randomNumber)
+   {
+    System.out.println("You guessed it correctly! You Win!");
+    winFlag++;
+    attempts++;
+    PreviousNumber = randomNumber;
+    randomNumber = random.nextInt(endNum-startNum+1)+startNum;
+    break;
+   }
+   else if(guess>randomNumber)
+   {
+    System.out.println(guess+" is too high than the answer");
+    
+   }
+   else if(guess<randomNumber)
+   {
+    System.out.println(guess+" is too less than the answer");
+    
+   }
+   attempts++;
+   
+    }
+    TotalAttempts = TotalAttempts + attempts;
+    System.out.println("\nNOTE:All your attempts will be over if you correctly guess it.\n You can enter 'y' for a new round!\n");
+    System.out.println("All 3 attempts are over, do you want to try again? Enter 'y' to continue..... ");
+    choice = scan.next().charAt(0);
+    round++;
+    
+   }
+
+    System.out.println("Stats for this session:");
+    System.out.println("------------------------");
+    System.out.println("Random number between " + startNum + " and " + endNum + ": " + PreviousNumber);
+    System.out.println("Number of times won:" + winFlag);
+    System.out.println("Number of attempts taken (in total): "+ TotalAttempts);
+    System.out.println("Number of rounds taken:" + round);
+
+ }
+}
