@@ -24,7 +24,8 @@ public class CurrencyConverter {
         System.out.println("Enter a amount in "+ Basecurrency);
         BigDecimal Basevalue = scan.nextBigDecimal();
 
-        String URL = "https://api.freecurrencyapi.com/v1/latest?apikey=fca_live_dcw4j30bW9Fhg6jKe30fB0zsWtGUeJzHSkCn8Qac&currencies="+ Targetcurrency.toUpperCase()+ "&base_currency="+Basecurrency.toUpperCase();
+       // String URL = "https://api.freecurrencyapi.com/"+ Targetcurrency.toUpperCase()+ "&base_currency="+Basecurrency.toUpperCase();
+        // For Security Reasons, I have removed my API key for reference I have used api from freecurrencyapi
 
         OkHttpClient client = new OkHttpClient();
 
